@@ -3,114 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlowBoost</title>
-  <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.29.0/font/lucide.css" rel="stylesheet">
+  <title>Global News</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, white, #f3f4f6);
-      padding: 1.5rem;
-      color: #1f2937;
+      font-family: 'Merriweather', serif;
+      background: #fff;
+      color: #111827;
     }
     header {
+      background: #111827;
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 3rem 1rem;
     }
     header h1 {
       font-size: 3rem;
-      font-weight: 800;
+      margin: 0;
     }
-    header p {
-      margin-top: 1rem;
-      color: #4b5563;
-      font-size: 1.125rem;
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
+    nav {
+      background: #1f2937;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
     }
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      background-color: #4f46e5;
-      color: white;
-      border-radius: 9999px;
+    nav a {
+      color: #f3f4f6;
       text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
     }
-    section {
+    nav a:hover {
+      background: #374151;
+      border-radius: 5px;
+    }
+    .main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .featured {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .featured-article {
+      background: #f9fafb;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .featured-article h2 {
+      margin-top: 0;
+    }
+    .grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      gap: 1.5rem;
     }
     @media (min-width: 768px) {
-      section {
+      .grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
+    .news-card {
+      background: #f3f4f6;
+      padding: 1.25rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-    .card:hover {
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .card p {
-      color: #6b7280;
-      font-size: 0.875rem;
+    .news-card h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
     }
     footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
       text-align: center;
-      margin-top: 6rem;
-      color: #9ca3af;
+      background: #111827;
+      color: white;
       font-size: 0.875rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>FlowBoost</h1>
-    <p>The ultimate AI productivity platform designed for modern creators and teams.</p>
-    <a href="#" class="button">Get Started Free</a>
+    <h1>Global News Daily</h1>
+    <p>Your trusted source for world news, politics, and culture.</p>
   </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">World</a>
+    <a href="#">Politics</a>
+    <a href="#">Business</a>
+    <a href="#">Technology</a>
+    <a href="#">Culture</a>
+    <a href="#">Science</a>
+    <a href="#">Opinion</a>
+  </nav>
 
-  <section>
-    <div class="card">
-      <div class="card-icon text-indigo-500"><i class="lucide lucide-rocket"></i></div>
-      <h3>AI-Powered Productivity</h3>
-      <p>Boost your workflow with intelligent task automation and insights.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon text-green-500"><i class="lucide lucide-trending-up"></i></div>
-      <h3>Real-time Collaboration</h3>
-      <p>Work seamlessly with your team across any device, anywhere.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon text-yellow-500"><i class="lucide lucide-star"></i></div>
-      <h3>Gamified Progress Tracking</h3>
-      <p>Stay motivated and track your goals with fun gamification.</p>
-    </div>
-  </section>
+  <main class="main">
+    <section class="featured">
+      <div class="featured-article">
+        <h2>Global Tensions Rise Amid New Diplomatic Conflicts</h2>
+        <p>Leaders across the globe react to the increasing tensions between rival nations. Experts weigh in on possible outcomes and paths forward.</p>
+      </div>
+    </section>
+
+    <section class="grid" style="margin-top: 2rem;">
+      <div class="news-card">
+        <h3>Economic Forecast 2025: What to Expect</h3>
+        <p>Analysts predict major shifts in the global market with AI-driven trade playing a larger role than ever.</p>
+      </div>
+      <div class="news-card">
+        <h3>Tech Giants Face New Regulations</h3>
+        <p>Governments are pushing back on monopolies with bold legislation targeting data privacy and competition.</p>
+      </div>
+      <div class="news-card">
+        <h3>Climate Action Ramps Up</h3>
+        <p>Nations unite to set new climate goals as global temperatures reach record highs in early 2025.</p>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 FlowBoost. All rights reserved.
+    &copy; 2025 Global News Daily. All rights reserved.
   </footer>
 </body>
 </html>
