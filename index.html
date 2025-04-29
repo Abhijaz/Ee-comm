@@ -1,49 +1,116 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Rocket, Star, TrendingUp } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowBoost</title>
+  <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.29.0/font/lucide.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, white, #f3f4f6);
+      padding: 1.5rem;
+      color: #1f2937;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    header p {
+      margin-top: 1rem;
+      color: #4b5563;
+      font-size: 1.125rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #4f46e5;
+      color: white;
+      border-radius: 9999px;
+      text-decoration: none;
+    }
+    section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 768px) {
+      section {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 6rem;
+      color: #9ca3af;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FlowBoost</h1>
+    <p>The ultimate AI productivity platform designed for modern creators and teams.</p>
+    <a href="#" class="button">Get Started Free</a>
+  </header>
 
-const features = [
-  {
-    title: "AI-Powered Productivity",
-    description: "Boost your workflow with intelligent task automation and insights.",
-    icon: () => <Rocket className="w-8 h-8 text-indigo-500" />,
-  },
-  {
-    title: "Real-time Collaboration",
-    description: "Work seamlessly with your team across any device, anywhere.",
-    icon: () => <TrendingUp className="w-8 h-8 text-green-500" />,
-  },
-  {
-    title: "Gamified Progress Tracking",
-    description: "Stay motivated and track your goals with fun gamification.",
-    icon: () => <Star className="w-8 h-8 text-yellow-500" />,
-  },
-];
-
-export default function TrendyLandingPage() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-100 p-6">
-      <header className="text-center py-12">
-        <h1 className="text-5xl font-extrabold text-gray-800">FlowBoost</h1>
-        <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
-          The ultimate AI productivity platform designed for modern creators and teams.
-        </p>
-        <Button className="mt-6 px-6 py-3 text-lg rounded-full">Get Started Free</Button>
-      </header>
-
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-        {features.map((feature, index) => (
-          <div key={index} className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
-            <div className="mb-4">{feature.icon()}</div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
-            <p className="text-gray-500 text-sm">{feature.description}</p>
-          </div>
-        ))}
-      </section>
-
-      <footer className="mt-24 text-center text-sm text-gray-400">
-        &copy; 2025 FlowBoost. All rights reserved.
-      </footer>
+  <section>
+    <div class="card">
+      <div class="card-icon text-indigo-500"><i class="lucide lucide-rocket"></i></div>
+      <h3>AI-Powered Productivity</h3>
+      <p>Boost your workflow with intelligent task automation and insights.</p>
     </div>
-  );
-}
+    <div class="card">
+      <div class="card-icon text-green-500"><i class="lucide lucide-trending-up"></i></div>
+      <h3>Real-time Collaboration</h3>
+      <p>Work seamlessly with your team across any device, anywhere.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon text-yellow-500"><i class="lucide lucide-star"></i></div>
+      <h3>Gamified Progress Tracking</h3>
+      <p>Stay motivated and track your goals with fun gamification.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 FlowBoost. All rights reserved.
+  </footer>
+</body>
+</html>
