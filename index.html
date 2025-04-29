@@ -1,95 +1,64 @@
-<!DOCTYPE html>
-<html>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart, Stethoscope, Syringe, Thermometer, Pills } from "lucide-react";
 
-<head>
-    <title>Simple web page Template</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+const products = [
+  {
+    name: "Digital Thermometer",
+    description: "Fast and accurate temperature readings for home or clinical use.",
+    icon: <Thermometer className="w-8 h-8 text-blue-500" />,
+    price: "$19.99",
+  },
+  {
+    name: "Stethoscope",
+    description: "High-quality acoustic performance with comfortable earpieces.",
+    icon: <Stethoscope className="w-8 h-8 text-green-500" />,
+    price: "$49.99",
+  },
+  {
+    name: "Syringe Pack (100 pcs)",
+    description: "Sterile and disposable syringes for safe medical usage.",
+    icon: <Syringe className="w-8 h-8 text-red-500" />,
+    price: "$39.99",
+  },
+  {
+    name: "First Aid Kit",
+    description: "Compact and complete kit for emergency medical care.",
+    icon: <Pills className="w-8 h-8 text-purple-500" />,
+    price: "$29.99",
+  },
+];
 
-<body>
-    <nav class="navbar background">
-        <div class="logo">
-            <img src="https://media.geeksforgeeks.org/gfg-gg-logo.svg" style="height: 30px;" alt="Logo">
-        </div>
-        <ul class="nav-list">
-            <li><a href="#web">Web Technology</a></li>
-            <li><a href="#program">C Programming</a></li>
-            <li><a href="#course">Courses</a></li>
-        </ul>
-        <div class="rightnav">
-            <input type="text" name="search" id="search">
-            <button class="btn btn-sm">Search</button>
-        </div>
-    </nav>
+export default function MedicalSuppliesPage() {
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <header className="text-center mb-10">
+        <h1 className="text-4xl font-bold text-gray-800">HealthPlus Medical Supplies</h1>
+        <p className="text-gray-500 mt-2">Your trusted source for quality medical equipment</p>
+      </header>
 
-    <section class="firstsection">
-        <div class="box-main">
-            <div class="firstHalf">
-                <h1 class="text-big" id="web">Web Technology
-                </h1>
-                <p class="text-small">
-                    HTML stands for HyperText Markup Language.
-                    It is used to design web pages using a markup
-                    language. HTML is the combination of Hypertext
-                    and Markup language. Hypertext defines the
-                    link between the web pages. A markup language
-                    is used to define the text document within tag
-                    which defines the structure of web pages.
-                    HTML is a markup language that is used by the
-                    browser to manipulate text, images, and other
-                    content to display it in the required format.
-                </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {products.map((product, idx) => (
+          <Card key={idx} className="rounded-2xl shadow-md hover:shadow-lg transition">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between mb-4">
+                <div>{product.icon}</div>
+                <div className="text-xl font-semibold text-gray-800">{product.price}</div>
+              </div>
+              <h3 className="text-lg font-bold text-gray-700 mb-1">{product.name}</h3>
+              <p className="text-sm text-gray-500 mb-4">{product.description}</p>
+              <Button className="w-full flex gap-2">
+                <ShoppingCart className="w-4 h-4" /> Add to Cart
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-
-            </div>
-        </div>
-    </section>
-
-    <section class="secondsection">
-        <div class="box-main">
-            <div class="firstHalf">
-                <h1 class="text-big" id="program">
-                    C Programming
-                </h1>
-                <p class="text-small">
-                    C is a procedural programming language. It
-                    was initially developed by Dennis Ritchie
-                    as a system programming language to write
-                    operating system. The main features of C
-                    language include low-level access to memory,
-                    simple set of keywords, and clean style,
-                    these features make C language suitable for
-                    system programming like operating system or
-                    compiler development.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="paras">
-            <h1 class="sectionTag text-big">Java</h1>
-            <p class="sectionSubTag text-small">
-                Java has been one of the most popular
-                programming language for many years.
-                Java is Object Oriented. However it is
-                not considered as pure object oriented
-                as it provides support for primitive
-                data types (like int, char, etc) The
-                Java codes are first compiled into byte
-                code (machine independent code). Then
-                the byte code is run on Java Virtual
-                Machine (JVM) regardless of the
-                underlying architecture.
-            </p>
-        </div>
-    </section>
-
-    <footer class="background">
-        <p class="text-footer">
-            Copyright ©-All rights are reserved
-        </p>
-    </footer>
-</body>
-
-</html>
+      <footer className="text-center mt-16 text-sm text-gray-400">
+        &copy; 2025 HealthPlus. All rights reserved.
+      </footer>
+    </div>
+  );
+}
