@@ -1,139 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global News</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Merriweather', serif;
-      background: #fff;
-      color: #111827;
-    }
-    header {
-      background: #111827;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
-    nav {
-      background: #1f2937;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    nav a {
-      color: #f3f4f6;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-    }
-    nav a:hover {
-      background: #374151;
-      border-radius: 5px;
-    }
-    .main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .featured {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .featured-article {
-      background: #f9fafb;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .featured-article h2 {
-      margin-top: 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .news-card {
-      background: #f3f4f6;
-      padding: 1.25rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .news-card h3 {
-      margin-top: 0;
-      font-size: 1.1rem;
-    }
-    footer {
-      margin-top: 3rem;
-      padding: 1.5rem;
-      text-align: center;
-      background: #111827;
-      color: white;
-      font-size: 0.875rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global News Daily - Fact-Check & News Portal</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Global News Daily</h1>
-    <p>Your trusted source for world news, politics, and culture.</p>
+
+  <!-- Header Banner -->
+  <header class="site-header">
+    <div class="header-content">
+      <h1>GLOBAL NEWS DAILY</h1>
+      <p class="tagline">Independent Industrial Media & Live Fact-Check Portal</p>
+      <span class="date-badge" id="currentDate"></span>
+    </div>
   </header>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">World</a>
-    <a href="#">Politics</a>
-    <a href="#">Business</a>
-    <a href="#">Technology</a>
-    <a href="#">Culture</a>
-    <a href="#">Science</a>
-    <a href="#">Opinion</a>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <button class="filter-btn active" data-category="all">All News</button>
+    <button class="filter-btn" data-category="tech">Technology</button>
+    <button class="filter-btn" data-category="world">World</button>
+    <button class="filter-btn" data-category="business">Business</button>
   </nav>
 
-  <main class="main">
-    <section class="featured">
-      <div class="featured-article">
-        <h2>Global Tensions Rise Amid New Diplomatic Conflicts</h2>
-        <p>Leaders across the globe react to the increasing tensions between rival nations. Experts weigh in on possible outcomes and paths forward.</p>
-      </div>
-    </section>
+  <!-- Main Content Layout -->
+  <div class="container">
+    <main class="news-grid" id="newsGrid">
+      
+      <!-- Article 1: Tech -->
+      <article class="news-card" data-category="tech">
+        <span class="badge tech">Technology</span>
+        <h2>AI Infrastructure Expands Across Global Data Centers</h2>
+        <p>Industrial server capacity increases by 35% as next-gen compute clusters go live worldwide.</p>
+        <div class="card-footer">
+          <button class="like-btn">❤️ <span class="like-count">12</span> Likes</button>
+        </div>
+      </article>
 
-    <section class="grid" style="margin-top: 2rem;">
-      <div class="news-card">
-        <h3>Economic Forecast 2025: What to Expect</h3>
-        <p>Analysts predict major shifts in the global market with AI-driven trade playing a larger role than ever.</p>
+      <!-- Article 2: World -->
+      <article class="news-card" data-category="world">
+        <span class="badge world">World</span>
+        <h2>Global Supply Chain Resilience Protocol Approved</h2>
+        <p>New international standards target shipping delays across maritime trade hubs.</p>
+        <div class="card-footer">
+          <button class="like-btn">❤️ <span class="like-count">28</span> Likes</button>
+        </div>
+      </article>
+
+      <!-- Article 3: Business -->
+      <article class="news-card" data-category="business">
+        <span class="badge business">Business</span>
+        <h2>Renewable Energy Investments Hit Record Highs</h2>
+        <p>Clean power generation contracts surpass traditional energy infrastructure spending.</p>
+        <div class="card-footer">
+          <button class="like-btn">❤️ <span class="like-count">45</span> Likes</button>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Sidebar: Fact-Check Submission Form -->
+    <aside class="sidebar">
+      <div class="form-card">
+        <h3>Submit Fact-Check Tip</h3>
+        <p>Spotted misleading news? Submit a claim to our newsroom team for validation.</p>
+
+        <form id="factCheckForm" novalidate>
+          <div class="form-group">
+            <label for="fullName">Reporter Name</label>
+            <input type="text" id="fullName" placeholder="John Doe">
+            <small class="error-msg" id="nameError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com">
+            <small class="error-msg" id="emailError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="claimUrl">Headline / Article URL</label>
+            <input type="text" id="claimUrl" placeholder="https://example.com/story">
+            <small class="error-msg" id="urlError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="tipDetails">Tip Details (Min. 20 chars)</label>
+            <textarea id="tipDetails" rows="3" placeholder="Explain why this headline requires fact-checking..."></textarea>
+            <small class="error-msg" id="tipError"></small>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Claim</button>
+        </form>
+
+        <div id="formSuccess" class="success-message"></div>
       </div>
-      <div class="news-card">
-        <h3>Tech Giants Face New Regulations</h3>
-        <p>Governments are pushing back on monopolies with bold legislation targeting data privacy and competition.</p>
-      </div>
-      <div class="news-card">
-        <h3>Climate Action Ramps Up</h3>
-        <p>Nations unite to set new climate goals as global temperatures reach record highs in early 2025.</p>
-      </div>
-    </section>
-  </main>
+    </aside>
+  </div>
+
+  <!-- Recent Submissions Section (DOM Injection Target) -->
+  <section class="container submissions-section">
+    <h3>Live Fact-Check Queue</h3>
+    <ul id="queueList" class="queue-list">
+      <li class="empty-queue">No user tips submitted yet in this session.</li>
+    </ul>
+  </section>
 
   <footer>
-    &copy; 2025 Global News Daily. All rights reserved.
+    <p>&copy; 2026 Global News Daily | Web Technologies U21CS501 Review Project</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
